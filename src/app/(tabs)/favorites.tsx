@@ -1,9 +1,16 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, FlatList } from "react-native";
+import { tracks } from "../../../assets/data/tracks";
+import TrackListItem from "../../components/TrackListItem";
 
-import { Text, View } from "../../components/Themed";
-
-export default function TabTwoScreen() {
-  return <View style={styles.container}></View>;
+export default function FavouritesScreen() {
+  return (
+    <FlatList
+      data={tracks}
+      renderItem={({ item }) => <TrackListItem track={item} />}
+      keyExtractor={(item) => item.id.toString()}
+      showsVerticalScrollIndicator={false}
+    />
+  );
 }
 
 const styles = StyleSheet.create({
@@ -11,14 +18,5 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
   },
 });
