@@ -8,12 +8,14 @@ const Player = () => {
     return null;
   }
 
-  const image = track.album.images?.[0];
+  const imageTrack = track.album.images?.[0];
 
   return (
     <View style={styles.container}>
       <View style={styles.player}>
-        {image && <Image source={{ uri: image.url }} style={styles.image} />}
+        {imageTrack && (
+          <Image source={{ uri: imageTrack.url }} style={styles.image} />
+        )}
 
         <View style={{ flex: 1 }}>
           <Text style={styles.title}>{track.name}</Text>
@@ -39,9 +41,13 @@ const Player = () => {
 
 const styles = StyleSheet.create({
   container: {
+    // position: "absolute",
+    // width: "100%",
+    top: -75,
+    // height: 75,
+    // padding: 10,
     position: "absolute",
     width: "100%",
-    top: -75,
     height: 75,
     padding: 10,
   },
