@@ -1,7 +1,7 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
 import { Pressable, useColorScheme, Text } from "react-native";
-import { bottomTabBar } from "@react-navigation/bottom-tabs";
+import { BottomTabBar } from "@react-navigation/bottom-tabs";
 
 import Colors from "../../constants/Colors";
 import { View } from "../../components/Themed";
@@ -22,10 +22,11 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
       }}
+      // placing a button at the buttom of the list, we use buttonTabBar
       tabBar={(props) => (
         <View>
           <Player />
-          <bottomTabBar {...props} />
+          <BottomTabBar {...props} />
         </View>
       )}
     >

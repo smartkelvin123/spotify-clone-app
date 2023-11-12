@@ -1,9 +1,10 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { tracks } from "../../assets/data/tracks";
-const track = tracks[0];
+import { usePlayerContext } from "../providers/PlayerProvider";
 
 const Player = () => {
+  const { track } = usePlayerContext();
   if (!track) {
     return null;
   }
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
   container: {
     // position: "absolute",
     // width: "100%",
-    top: -75,
+    top: -75, // this to make the item scrollable under the player
     // height: 75,
     // padding: 10,
     position: "absolute",
