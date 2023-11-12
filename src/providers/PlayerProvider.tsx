@@ -1,7 +1,14 @@
 import { PropsWithChildren, createContext, useState, useContext } from "react";
 import { Track } from "../types";
 
-const PlayerContext = createContext({});
+type PlayerContextType = {
+  track?: Track | undefined;
+  setTrack: (track: Track) => void;
+};
+
+const PlayerContext = createContext<PlayerContextType>({
+  setTrack: () => {},
+});
 
 export default function PlayerProvider({ children }: PropsWithChildren) {
   const [track, setTrack] = useState<Track>();
